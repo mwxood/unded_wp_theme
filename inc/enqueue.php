@@ -8,8 +8,6 @@ function starter_theme_scripts() {
 
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap', false);
 
-    wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), null);
-
     function enqueue_custom_scripts_in_footer() {
         $modificated_starter_theme_version_js = date('YmdHi', filemtime(get_template_directory() . '/build/index.js'));
 

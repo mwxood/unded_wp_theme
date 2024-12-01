@@ -14,14 +14,26 @@ defined("ABSPATH") || exit(); ?>
 </head>
 <body <?php body_class(); ?>>
 
-<div class="wrapper">
-    <header class="header d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="container">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-          logo
+<div class="container">
+      <header class="header-bg d-flex align-items-center justify-content-between">
+        <a href="/">
+            <img src="<?php echo site_url(); ?>/wp-content/uploads/2024/12/logo.svg" alt="Logo" class="logo">
         </a>
-        
-        <?php get_template_part("template-parts/header/header-menu"); ?>
-      </div>    
-    </header>
+        <nav class="navigation">
+          <ul class="nav d-flex">
+            <li class="active"><a href="#">home</a></li>
+            <li><a href="#">pages</a></li>
+            <li><a href="#">portfolio</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </nav>
 
+        <div class="search-nav-section d-flex align-items-center justify-content-between">
+          <button class="search-button">
+              <img width="40" height="40" src="<?php echo get_template_directory_uri(); ?>/assets/img/search-icon.svg" alt="Search">
+          </button>
+          <button class="mobile-nav"><span></span></button>
+        </div>
+      </header>  
+</div>

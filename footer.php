@@ -2,35 +2,53 @@
 
 defined("ABSPATH") || exit(); ?>
 
-<footer class="footer">
-    <div class="container">
-      <?php if (is_active_sidebar("footer")): ?>
-          <div class="<?= apply_filters(
-            "bootscore/class/footer/top",
-            ""
-          ) ?> starter_theme_footer">
-            <div class="<?= apply_filters(
-              "bootscore/class/container",
-              "container",
-              "footer"
-            ) ?>">
-              <?php dynamic_sidebar("footer"); ?>
+<footer class="footer-bg">
+    <div class="container-md">
+        <div class="footer-row d-flex justify-content-between">
+            <a href="#" class="logo footer-col">
+                <img src="<?php echo site_url(); ?>/wp-content/uploads/2024/12/logo.svg" alt="Logo">
+            </a>
+            <div class="address footer-col">
+                <h3>Address</h3>
+                <ul>
+                    <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/call.svg" alt="call"><a href="tel:+1246333-0088">+ 1 (246) 333-0088</a></li>
+                    <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/email.svg" alt="email"><a href="mailto:alma.lawson@example.com">alma.lawson@example.com</a></li>
+                    <li>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/map.svg" alt="map">4140 Parker Rd. Allentown, New Mexico 31134
+                    </li>
+                </ul>
             </div>
-          </div>
-        <?php endif; ?>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-          <p>&copy; <?php echo date(
-            "Y"
-          ); ?> Company, Inc. All rights reserved.</p>
-          <ul class="list-unstyled d-flex">
-            <li class="ms-3"><a class="link-body-emphasis" href="#">facebook</a></li>
-            <li class="ms-3"><a class="link-body-emphasis" href="#">x</a></li>
-            <li class="ms-3"><a class="link-body-emphasis" href="#">apple</a></li>
-          </ul>
-      </div>
-    </div><!-- end container -->
-</footer>
+            <div class="social footer-col">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Behance</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+
+            <div class="subscribe footer-col">
+                <h3>Subscribe</h3>
+               <form class="subscribe-form" action="#">
+                    <input type="email" placeholder="Enter your email">
+                    <button><img src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow.svg" alt=""></button>
+               </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-row d-flex align-items-center justify-content-between">
+                <ul class="d-flex">
+                    <li><a href="#">Privacy & Terms.</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <span class="copyright">
+                    © <?php echo date("Y"); ?> <a href="#">Unded</a>, All Rights Reserved
+                </span>
+            </div>
+        </div>
+    </div>
+  </footer>
 </div><!-- end container -->
 
 <?php wp_footer(); ?>
