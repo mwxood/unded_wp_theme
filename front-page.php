@@ -347,7 +347,7 @@ get_header();
                                 <?php the_excerpt(); ?>
                             </p>
                         </div>
-                        <a href="<?php the_permalink(); ?>" class="d-flex align-items-center">Read More <img src="assets/img/right-arrow.svg" alt=""></a>
+                        <a href="<?php the_permalink(); ?>" class="d-flex align-items-center">Read More <img src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow.svg" alt=""></a>
                   </article>
                   <?php endwhile; ?>
                   </div>
