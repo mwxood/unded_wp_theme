@@ -56,12 +56,10 @@ get_header();
 
      
         
-        <div class="container-md">
-       
+    <div class="container-md">
         <section class="info-holder">
             <div class="info-content d-flex justify-content-between">
                 <div class="way-we-do">
-                  
                   <?php if(!empty(get_field('services_subtitle'))): ?>
                     <h2 class="info-title">
                       <span><?php echo get_field('services_subtitle'); ?></span>
@@ -79,23 +77,38 @@ get_header();
                     <a class="d-flex align-items-center" href="#">Read case study <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow-right.svg" alt="arrow right"></a>
                   <?php endif; ?>
                 </div>
+
+              <?php 
+              $args = array(
+                'post_type' => 'services',
+                'posts_per_page' => 4,
+              );
+              $the_query = new WP_Query( $args ); ?>
+
+              <div class="info-services">
+                <div class="info-content d-flex flex-wrap">
+
+                  <?php if ( $the_query->have_posts() ) : ?>
+                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                    <div class="services-col">
+                      <?php if(!empty(get_field('services_image'))): ?>
+                          <img src="<?php echo get_field('services_image'); ?>" alt="Web UI/UX Design">
+                      <?php endif; ?>
+                      <h3><?php the_title(); ?></h3>
+                      <p><?php the_content(); ?></p>
+                    </div>
+                    <?endwhile; ?>
+                  <? endif; wp_reset_postdata(); ?>
+                </div>
+              </div>
+
+
+                
               
             </div>
         </section>
-   </div>
+    </div>
 
-        
-    <?php if (have_posts()):
-      the_post(); ?>
-
-    <?php the_title("<h1>", "</h1>"); ?>
-
-    <?php the_content(); ?>
-
-        <a href="<?php the_permalink(); ?>">View more</a>
-
-    <?php
-    endif; ?>
 </div>
 
 <?php get_footer(); ?>
