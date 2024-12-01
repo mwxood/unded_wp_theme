@@ -184,33 +184,49 @@ get_header();
         </div>
    </section>
 
-   <section class="services">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/services-nav.svg" class="services-img" alt="services">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spiral.svg" class="services-spiral" alt="services">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spot.svg" class="services-spot" alt="services">
-        <ul class="services-menu">
-            <li class="active"><a href="#">Creative innovation</a></li>
-            <li><a href="#">Design figures</a></li>
-            <li><a href="#">Art design</a></li>
-            <li><a href="#">Artistic portrait</a></li>
-        </ul>
-        <div class="vision">
-            <div class="container-md">
-                <div class="d-flex">
-                    <span class="vision-holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/vision-1.webp" alt="vision">
-                    </span>
-                    <span class="vision-holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/vision-2.webp" alt="vision">
-                        <span>Jenny Wilson <em>Creative Design</em></span>
-                    </span>
-                    <span class="vision-holder">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/vision-3.webp" alt="vision">
-                    </span>
+   <?php
+   
+    $args = array(
+      'post_type' => 'vision',
+      'posts_per_page' => 3,
+
+    );
+
+    $the_query = new WP_Query( $args );
+
+   ?>
+
+   <?php if ( $the_query->have_posts() ) : ?>
+    <section class="services">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/services-nav.svg" class="services-img" alt="services">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spiral.svg" class="services-spiral" alt="services">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spot.svg" class="services-spot" alt="services">
+          <ul class="services-menu">
+              <li class="active"><a href="#">Creative innovation</a></li>
+              <li><a href="#">Design figures</a></li>
+              <li><a href="#">Art design</a></li>
+              <li><a href="#">Artistic portrait</a></li>
+          </ul>
+          <div class="vision">
+              <div class="container-md">
+                  <div class="d-flex">
+                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                      <span class="vision-holder">
+                          <?php if(!empty(get_field('vision_image'))): ?>
+                          <?php endif; ?>
+                            <img src="<?php echo get_field('vision_image'); ?>" alt="vision">
+                            <span>Jenny Wilson <em>Creative Design</em></span>
+                        </span>
+                    <?php endwhile; ?>
                 </div>
-            </div>
-        </div>
-   </section>
+              </div>
+          </div>
+    </section>
+  <?php endif; wp_reset_postdata(); ?>
+
+
+
+  
 
 </div>
 

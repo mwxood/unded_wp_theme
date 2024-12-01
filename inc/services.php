@@ -11,6 +11,7 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+
 function create_services_post_type() {
     register_post_type("services", array(
         "labels" => array(

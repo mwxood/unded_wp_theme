@@ -15,19 +15,19 @@ defined('ABSPATH') || exit;
 function create_vision_post_type() {
     register_post_type("vision", array(
         "labels" => array(
-            "name" => "vision",
-            "singular_name" => "vision"
+            "name" => "Vision",
+            "singular_name" => "Vision"
         ),
         "public" => true,
+        'show_in_rest' => true,
         "has_archive" => false, 
-        "supports" => array("title", "editor", "thumbnail"),
+        'supports' => array('title', 'excerpt', 'thumbnail'), 
         "menu_position" => 5,
         "menu_icon" => "dashicons-filter",
     ));
 
-    // register test taxonomy
     register_taxonomy("vision", "vision", array(
-        "hierarchical" => true,
+        "hierarchical" => false,
         "labels" => array(
             "name" => "vision",
             "singular_name" => "vision"
