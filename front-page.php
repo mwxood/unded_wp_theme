@@ -53,6 +53,38 @@ get_header();
           </div>
         </div>
       <?php endif; ?>
+
+     
+        
+        <div class="container-md">
+       
+        <section class="info-holder">
+            <div class="info-content d-flex justify-content-between">
+                <div class="way-we-do">
+                  
+                  <?php if(!empty(get_field('services_subtitle'))): ?>
+                    <h2 class="info-title">
+                      <span><?php echo get_field('services_subtitle'); ?></span>
+                      <?php echo get_field('services_title'); ?>
+                    </h2>
+                  <?php endif; ?>
+
+                  <?php if(!empty(get_field('services_text'))): ?>
+                    <p>
+                      <?php echo get_field('services_text'); ?>
+                    </p>
+                  <?php endif; ?>
+
+                  <?php if(!empty(get_field('services_subtitle')) || !empty(get_field('services_text')) || !empty(get_field('services_text'))): ?>
+                    <a class="d-flex align-items-center" href="#">Read case study <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow-right.svg" alt="arrow right"></a>
+                  <?php endif; ?>
+                </div>
+              
+            </div>
+        </section>
+   </div>
+
+        
     <?php if (have_posts()):
       the_post(); ?>
 
