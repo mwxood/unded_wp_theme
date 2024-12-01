@@ -158,11 +158,31 @@ get_header();
                 </div>
             </div>
           <?php endif; ?>
-
     </div>               
-    </section>
-    
+  </section>
 
+  <section class="partners">
+        <div class="container-md">
+           <h6>Over 32K+ software businesses growing with</h6>
+           <div class="partners-content d-flex justify-content-between align-items-center">
+                <span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ixvisla.svg" alt="parner">
+                </span>
+               <span>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/artlq.svg" alt="parner">
+               </span>
+               <span>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/visiovibe.svg" alt="parner">
+               </span>
+               <span>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/evo.svg" alt="parner">
+               </span>
+                <span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ink.svg" alt="parner">
+                </span>
+           </div>
+        </div>
+   </section>
 
 </div>
 
