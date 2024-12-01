@@ -6,6 +6,8 @@ function starter_theme_scripts() {
 
     wp_enqueue_style('main', get_template_directory_uri() . '/build/style-index.css', array(), $modificated_starter_theme_version_css);
 
+    wp_enqueue_style('cdn-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), $modificated_starter_theme_version_css);
+
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap', false);
 
     function enqueue_custom_scripts_in_footer() {

@@ -8,7 +8,7 @@ function create_portfolio_post_type() {
             "singular_name" => "Portfolio"
         ),
         "public" => true,
-        "has_archive" => true,
+        "has_archive" => false,
         "supports" => array("title", "editor", "thumbnail"),
         "menu_position" => 5,
         "menu_icon" => "dashicons-admin-customizer",

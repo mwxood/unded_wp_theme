@@ -109,6 +109,46 @@ get_header();
         </section>
     </div>
 
+    <?php 
+    $args = array(
+      'post_type' => 'portfolio',
+      'posts_per_page' => 4,
+    );
+    $the_query = new WP_Query( $args );
+    ?>
+
+    <?php if ( $the_query->have_posts() ) : ?>
+      <section class="portolio-holder">
+        <div class="container">
+          <div class="slider-holder">
+          <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+      <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <div class="swiper-slide">
+            <?php if(!empty(get_field('portfolio_img'))): ?>
+              <img src="<?php echo get_field('portfolio_img') ?>" alt="<?php the_title(); ?>">
+            <?php endif; ?>
+            
+            <h4><?php the_title(); ?></h4>
+             <span><?php the_content(); ?></span>  
+          </div>
+      <?php endwhile; ?>
+          </div>
+          </div>
+          </div>
+          <div class="swiper-navigation">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>               
+    </section>
+            
+    <?php endif; wp_reset_postdata(); ?>
+
+  
+    
+
+
 </div>
 
 <?php get_footer(); ?>
