@@ -194,6 +194,11 @@ get_header();
 
     $the_query = new WP_Query( $args );
 
+    $terms = get_terms( array(
+      'taxonomy' => 'vision',
+      'hide_empty' => false,
+    ) );
+
    ?>
 
    <?php if ( $the_query->have_posts() ) : ?>
@@ -201,11 +206,11 @@ get_header();
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/services-nav.svg" class="services-img" alt="services">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spiral.svg" class="services-spiral" alt="services">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/spot.svg" class="services-spot" alt="services">
+          
           <ul class="services-menu">
-              <li class="active"><a href="#">Creative innovation</a></li>
-              <li><a href="#">Design figures</a></li>
-              <li><a href="#">Art design</a></li>
-              <li><a href="#">Artistic portrait</a></li>
+            <?php foreach ( $terms as $term ): ?>
+              <li><a href="<?php echo get_term_link( $term->term_id ); ?>"><?php echo $term->name; ?></a></li>
+            <?php endforeach; ?>
           </ul>
           <div class="vision">
               <div class="container-md">
@@ -225,9 +230,131 @@ get_header();
   <?php endif; wp_reset_postdata(); ?>
 
 
+  <section class="services-area-holder">
+    <div class="container-md">
+        <div class="services-area">
+            <h2>
+                <span>MY Expereince resume</span>
+                My services area
+            </h2>
 
-  
+            <div class="servicers-row">
+                <div class="services-table d-flex align-items-center justify-content-between">
+                    <div class="name d-flex align-items-center services-table-col">
+                        <img src="assets/img/web-dev.svg" alt="">
+                        Web Development
+                    </div>
+                    <div class="description services-table-col">
+                        We are helping client to create UI websites.
+                    </div>
+                    <div class="tech d-flex align-items-center">
+                        <ul>
+                            <li>Laravel</li>
+                            <li>WordPress</li>
+                            <li>PHP</li>
+                        </ul>
+
+                        <div class="button-holder">
+                            <a href="/services/">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow_right-up.svg" alt="arrow icon">
+                            </a>
+                       </div>
+                    </div>
+                </div>  
+            </div>
+
+        
+
+            <div class="servicers-row">
+                <div class="services-table d-flex align-items-center justify-content-between">
+                    <div class="name d-flex align-items-center services-table-col">
+                        <img src="assets/img/web-dev.svg" alt="">
+                        <span class="colored">Web Development</span>
+                    </div>
+                    <div class="description services-table-col">
+                        We are helping client to create UI websites.
+                    </div>
+                    <div class="tech d-flex align-items-center">
+                        <ul>
+                            <li>Ux/ Ui</li>
+                            <li>Mobile App</li>
+                            <li>Branding</li>
+                        </ul>
+
+                        <div class="button-holder">
+                            <a href="/services/">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow_right-up.svg" alt="arrow icon">
+                            </a>
+                       </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="servicers-row">
+                <div class="services-table d-flex align-items-center justify-content-between">
+                    <div class="name d-flex align-items-center services-table-col">
+                        <img src="assets/img/web-dev.svg" alt="">
+                        Web Development
+                    </div>
+                    <div class="description services-table-col">
+                        We are helping client to create UI websites.
+                    </div>
+                    <div class="tech d-flex align-items-center">
+                        <ul>
+                            <li>Ux/ Ui</li>
+                            <li>Mobile App</li>
+                            <li>Branding</li>
+                        </ul>
+
+                       <div class="button-holder">
+                            <a href="/services/">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow_right-up.svg" alt="arrow icon">
+                            </a>
+                       </div>
+                    </div>
+                </div>  
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+          <?php
+            
+            $args = array(
+              'post_type' => 'post',
+              'posts_per_page' => 3,
+            );
+
+            $the_query = new WP_Query( $args );
+
+            ?>
+
+            <?php if ( $the_query->have_posts() ) : ?>
+              <section class="articles">
+                <div class="container-md">
+                <h2>
+                  <span>Blog Post</span>
+                  My Latest Articles
+              </h2>
+                <div class="post-row d-flex">
+                  <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                  <article class="post">
+                    <span class="date"><?php the_date(); ?></span>
+                        <h3><?php the_title(); ?> </h3>
+                        <div class="article-short">
+                            <p>
+                                <?php the_excerpt(); ?>
+                            </p>
+                        </div>
+                        <a href="<?php the_permalink(); ?>" class="d-flex align-items-center">Read More <img src="assets/img/right-arrow.svg" alt=""></a>
+                  </article>
+                  <?php endwhile; ?>
+                  </div>
+                </div>
+              </section>
+            <?php endif; ?>
 
 </div>
-
+          
 <?php get_footer(); ?>
