@@ -123,7 +123,7 @@ get_header();
           <div class="slider-holder">
           <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-      <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
           <div class="swiper-slide">
             <?php if(!empty(get_field('portfolio_img'))): ?>
               <img src="<?php echo get_field('portfolio_img') ?>" alt="<?php the_title(); ?>">
@@ -132,7 +132,7 @@ get_header();
             <h4><?php the_title(); ?></h4>
              <span><?php the_content(); ?></span>  
           </div>
-      <?php endwhile; ?>
+          <?php endwhile; ?>
           </div>
           </div>
           </div>
@@ -140,12 +140,27 @@ get_header();
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
-        </div>               
-    </section>
+
+         
+
+        
+      
             
     <?php endif; wp_reset_postdata(); ?>
 
-  
+    <?php if(!empty(get_field('testimonial_name')) || !empty(get_field('testimonial_text')) || !empty(get_field('testimonial_position'))): ?>
+            <div class="portfolio-tesimonial">
+                <div class="testimonial-text">
+                    <h5><?php echo get_field('testimonial_text'); ?></h5>
+                    <span class="name">
+                       <?php echo get_field('testimonial_name'); ?> - <span><?php echo get_field('testimonial_position'); ?></span>
+                    </span>
+                </div>
+            </div>
+          <?php endif; ?>
+
+    </div>               
+    </section>
     
 
 
