@@ -6,9 +6,9 @@ get_header();
 ?>
 
 <main class="page-body container">
-      <?php if(is_front_page()): ?>
+      <?php if(!empty(get_field('subtitle')) || !empty(get_field('title')) || !empty(get_field('banner_text'))): ?>
         <div class="container">
-        <div class="banner-container">
+          <div class="banner-container">
               <div class="banner-inner d-flex align-items-center">
                   <div>
                       <?php if(!empty(get_field('subtitle'))): ?>
@@ -46,9 +46,8 @@ get_header();
                   <?php if(!empty(get_field('banner'))): ?>
                     <div class="banner-img">
                       <img src="<?php echo get_field('banner'); ?>" alt="Banner Image">
-                  </div>
+                    </div>
                   <?php endif; ?>
-
                  
               </div>
           </div>
