@@ -5,7 +5,7 @@ defined("ABSPATH") || exit();
 get_header();
 ?>
 
-<main class="page-body container">
+<main class="page-body">
       <?php if(!empty(get_field('subtitle')) || !empty(get_field('title')) || !empty(get_field('banner_text'))): ?>
         <div class="container">
           <div class="banner-container">
@@ -141,9 +141,6 @@ get_header();
             <div class="swiper-button-prev"></div>
           </div>
 
-         
-
-        
       
             
     <?php endif; wp_reset_postdata(); ?>
@@ -160,6 +157,8 @@ get_header();
           <?php endif; ?>
     </div>               
   </section>
+
+ </div>
 
   <section class="partners">
         <div class="container-md">
@@ -209,7 +208,7 @@ get_header();
           
           <ul class="services-menu">
             <?php foreach ( $terms as $term ): ?>
-              <li><a href="<?php echo get_term_link( $term->term_id ); ?>"><?php echo $term->name; ?></a></li>
+              <li><a href="#"><?php echo $term->name; ?></a></li>
             <?php endforeach; ?>
           </ul>
           <div class="vision">
@@ -229,6 +228,7 @@ get_header();
     </section>
   <?php endif; wp_reset_postdata(); ?>
 
+  <div class="container-md">
 
   <section class="services-area-holder">
     <div class="container-md">
@@ -241,7 +241,7 @@ get_header();
             <div class="servicers-row">
                 <div class="services-table d-flex align-items-center justify-content-between">
                     <div class="name d-flex align-items-center services-table-col">
-                        <img src="assets/img/web-dev.svg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/web-dev.svg" alt="">
                         Web Development
                     </div>
                     <div class="description services-table-col">
@@ -268,7 +268,7 @@ get_header();
             <div class="servicers-row">
                 <div class="services-table d-flex align-items-center justify-content-between">
                     <div class="name d-flex align-items-center services-table-col">
-                        <img src="assets/img/web-dev.svg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/web-dev.svg" alt="">
                         <span class="colored">Web Development</span>
                     </div>
                     <div class="description services-table-col">
@@ -293,7 +293,7 @@ get_header();
             <div class="servicers-row">
                 <div class="services-table d-flex align-items-center justify-content-between">
                     <div class="name d-flex align-items-center services-table-col">
-                        <img src="assets/img/web-dev.svg" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/web-dev.svg" alt="">
                         Web Development
                     </div>
                     <div class="description services-table-col">
@@ -318,6 +318,10 @@ get_header();
         </div>
     </div>
   </section>
+
+ </div>
+
+  <div class="container-md">
 
           <?php
             

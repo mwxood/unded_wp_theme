@@ -602,6 +602,14 @@
   color: #fff;
 }
 
+.inner-page {
+  margin: 100px 0 !important;
+}
+.inner-page h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
 .footer-bg {
   background: #262626;
   padding: 172px 0 0;
@@ -986,6 +994,9 @@
 @media (max-width: 480px) {
   .slider-holder {
     margin-bottom: 30px;
+  }
+  .inner-page h1 {
+    font-size: 30px;
   }
 }
 * {
